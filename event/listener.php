@@ -8,12 +8,12 @@
 */
 
 namespace david63\registrationage\event;
-use david63\registrationage\ext;
 
 /**
 * @ignore
 */
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use david63\registrationage\ext;
 
 /**
 * Event listener
