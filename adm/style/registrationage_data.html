@@ -1,0 +1,97 @@
+{% include 'overall_header.html' %}
+{% INCLUDECSS '@david63_registrationage/version.css' %}
+
+<a name="maincontent"></a>
+
+<h1>{{ lang('REGISTRATION_AGE') }}</h1>
+<p>{{ lang('REGISTRATION_DATA_EXPLAIN') }}</p>
+<span class="version_name">{{ lang('VERSION') }}{{ lang('COLON') }}</span><span class="version">{REGISTRATION_AGE_VERSION}</span>
+
+<form id="list" method="post" action="{U_ACTION}">
+
+<div class="pagination">
+	{% if pagination or TOTAL_USERS %}
+			{TOTAL_USERS}
+		{% if pagination %}
+			&bull; {% include 'pagination.html' %}
+		{% else %}
+			&bull; {PAGE_NUMBER}
+		{% endif %}
+	{% endif %}
+</div>
+
+<br />
+
+<table cellspacing="1">
+<thead>
+	<tr>
+		<th>{{ lang('FILTER_BY') }}</th>
+		<th>{{ lang('SELECT_CHAR') }}</th>
+	</tr>
+</thead>
+
+<tbody>
+	<tr class="row1">
+		<td><strong>{{ lang('FILTER_USERNAME') }}</strong></td>
+		<td>{% for char in first_char %}
+			<a href="{char.U_SORT}">{char.DESC}</a>&nbsp;
+		{% endfor %}</td>
+	</tr>
+</tbody>
+
+</table>
+
+<fieldset class="display-options">
+	{{ lang('SORT_BY') }} {{ lang('COLON') }} {S_SORT_KEY} {S_SORT_DIR}
+	<input class="button2" type="submit" value="{{ lang('REG_AGE_SORT') }}" name="sort" />
+	&nbsp;&bull;&nbsp;
+	<input class="button2" type="submit" value="{{ lang('REG_AGE_CLEAR_FILTER') }}" name="clear_filters" />
+</fieldset>
+
+<table cellspacing="1">
+<thead>
+	<tr>
+		<th>&nbsp;</th>
+		<th class="centered-text" colspan="2">{{ lang('PROFILE_DATA') }}</th>
+		<th class="centered-text" colspan="2">{{ lang('REGISTRATION_DATA') }}</th>
+		<th>&nbsp;</th>
+	</tr>
+
+	<tr>
+		<th>{{ lang('USERNAME') }}</th>
+		<th class="centered-text">{{ lang('DATE_OF_BIRTH') }}</th>
+		<th class="centered-text">{{ lang('AGE') }}</th>
+		<th class="centered-text">{{ lang('DATE_OF_BIRTH') }}</th>
+		<th class="centered-text">{{ lang('AGE') }}</th>
+		<th class="centered-text">{{ lang('STATUS') }}</th>
+	</tr>
+</thead>
+
+<tbody>
+	{% for ages in agelist %}
+		{% if ages.S_ROW_COUNT is even %}<tr class="row1">{% else %}<tr class="row2">{% endif %}
+			<td>{ages.USERNAME}</td>
+			<td class="centered-text">{ages.BIRTHDAY}</td>
+			<td class="centered-text">{ages.AGE}</td>
+			<td class="centered-text">{ages.REG_BDAY}</td>
+			<td class="centered-text">{ages.REG_AGE}</td>
+			<td class="centered-text">{ages.STATUS}</td>
+		</tr>
+	{% endfor %}
+</tbody>
+
+</table>
+
+<br />
+
+<div class="pagination">
+	{% if pagination %}
+		&bull; {% include 'pagination.html' %}
+	{% else %}
+		&bull; {PAGE_NUMBER}
+	{% endif %}
+</div>
+
+</form>
+
+{% include 'overall_footer.html' %}

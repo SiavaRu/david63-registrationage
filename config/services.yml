@@ -1,0 +1,34 @@
+services:
+    david63.registrationage.listener:
+        class: david63\registrationage\event\listener
+        arguments:
+            - '@config'
+            - '@user'
+            - '@language'
+            - '@template'
+            - '@request'
+            - '@auth'
+            - '@log'
+        tags:
+            - { name: event.listener }
+
+    david63.registrationage.admin.controller:
+        class: david63\registrationage\controller\admin_controller
+        arguments:
+            - '@config'
+            - '@request'
+            - '@template'
+            - '@user'
+            - '@language'
+            - '@log'
+
+    david63.registrationage.data.controller:
+        class: david63\registrationage\controller\data_controller
+        arguments:
+            - '@config'
+            - '@dbal.conn'
+            - '@request'
+            - '@template'
+            - '@pagination'
+            - '@language'
+            - '%core.root_path%ext/david63/registrationage/'

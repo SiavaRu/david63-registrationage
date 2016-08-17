@@ -1,0 +1,71 @@
+{% include 'overall_header.html' %}
+{% INCLUDECSS '@david63_registrationage/version.css' %}
+
+<h1>{{ lang('REGISTRATION_AGE') }}</h1>
+<p>{{ lang('REGISTRATION_AGE_EXPLAIN') }}</p>
+
+<form id="sitelogo" method="post" action="{U_ACTION}">
+	<span class="version_name">{{ lang('VERSION') }}{{ lang('COLON') }}</span><span class="version">{REGISTRATION_AGE_VERSION}</span>
+
+	<fieldset>
+		<legend>{{ lang('REGISTRATION_AGE_OPTIONS') }}</legend>
+
+		<dl>
+			<dt><label for="registration_age">{{ lang('REGISTRATION_AGE') }}{{ lang('COLON') }}</label><br /><span>{{ lang('REGISTRATION_AGE_EXPLAIN') }}</span></dt>
+			<dd>
+				<label><input  id="registration_age" type="number" maxlength="2" name="registration_age" value="{REGISTRATION_AGE}" min="1" max="99" /></label>
+			</dd>
+		</dl>
+
+		<dl>
+			<dt><label for="registration_age_base">{{ lang('REGISTRATION_AGE_BASE') }}{{ lang('COLON') }}</label><br /><span>{{ lang('REGISTRATION_AGE_BASE_EXPLAIN') }}</span></dt>
+			<dd><label><input type="radio" class="radio" name="registration_age_base" value="1" id="registration_age_base"{% if REGISTRATION_AGE_BASE %} checked="checked"{% endif %} /> {{ lang('YES') }}</label>
+				<label><input type="radio" class="radio" name="registration_age_base" value="0" {% if not REGISTRATION_AGE_BASE %} checked="checked"{% endif %} /> {{ lang('NO') }}</label></dd>
+		</dl>
+
+		<dl>
+			<dt><label for="registration_age_log">{{ lang('REGISTRATION_AGE_LOG') }}{{ lang('COLON') }}</label><br /><span>{{ lang('REGISTRATION_AGE_LOG_EXPLAIN') }}</span></dt>
+			<dd><label><input type="radio" class="radio" name="registration_age_log" value="1" id="registration_age_log"{% if REGISTRATION_AGE_LOG %} checked="checked"{% endif %} /> {{ lang('YES') }}</label>
+				<label><input type="radio" class="radio" name="registration_age_log" value="0" {% if not REGISTRATION_AGE_LOG %} checked="checked"{% endif %} /> {{ lang('NO') }}</label></dd>
+		</dl>
+
+		<dl>
+			<dt><label for="registration_age_ip">{{ lang('REGISTRATION_AGE_IP') }}{{ lang('COLON') }}</label><br /><span>{{ lang('REGISTRATION_AGE_IP_EXPLAIN') }}</span></dt>
+			<dd><label><input type="radio" class="radio" name="registration_age_ip" value="1" id="registration_age_ip"{% if REGISTRATION_AGE_IP %} checked="checked"{% endif %} /> {{ lang('YES') }}</label>
+				<label><input type="radio" class="radio" name="registration_age_ip" value="0" {% if not REGISTRATION_AGE_IP %} checked="checked"{% endif %} /> {{ lang('NO') }}</label></dd>
+		</dl>
+
+		<dl>
+			<dt><label for="registration_age_ban_reason">{{ lang('REGISTRATION_AGE_BAN_REASON') }}{{ lang('COLON') }}</label><br /><span>{{ lang('REGISTRATION_AGE_BAN_REASON_EXPLAIN') }}</span></dt>
+			<dd><input name="registration_age_ban_reason" type="text" id="registration_age_ban_reason" value="{REGISTRATION_AGE_BAN_REASON}" size="40" maxlength="255" validate="string" /></dd>
+		</dl>
+
+		<dl>
+			<dt><label for="registration_age_ban_length">{{ lang('REGISTRATION_AGE_BAN_LENGTH') }}{{ lang('COLON') }}</label><br /><span>{{ lang('REGISTRATION_AGE_BAN_LENGTH_EXPLAIN') }}</span></dt>
+			<dd>{REGISTRATION_AGE_BAN_LENGTH}</dd>
+		</dl>
+
+		<dl>
+			<dt><label for="registration_age_store">{{ lang('REGISTRATION_AGE_STORE') }}{{ lang('COLON') }}</label><br /><span>{{ lang('REGISTRATION_AGE_STORE_EXPLAIN') }}</span></dt>
+			<dd><label><input type="radio" class="radio" name="registration_age_store" value="1" id="registration_age_store"{% if REGISTRATION_AGE_STORE %} checked="checked"{% endif %} /> {{ lang('YES') }}</label>
+				<label><input type="radio" class="radio" name="registration_age_store" value="0" {% if not REGISTRATION_AGE_STORE %} checked="checked"{% endif %} /> {{ lang('NO') }}</label></dd>
+		</dl>
+
+		<dl>
+			<dt><label for="registration_age_copy">{{ lang('REGISTRATION_AGE_COPY') }}{{ lang('COLON') }}</label><br /><span>{{ lang('REGISTRATION_AGE_COPY_EXPLAIN') }}</span></dt>
+			<dd><label><input type="radio" class="radio" name="registration_age_copy" value="1" id="registration_age_copy"{% if REGISTRATION_AGE_COPY %} checked="checked"{% endif %} /> {{ lang('YES') }}</label>
+				<label><input type="radio" class="radio" name="registration_age_copy" value="0" {% if not REGISTRATION_AGE_COPY %} checked="checked"{% endif %} /> {{ lang('NO') }}</label></dd>
+		</dl>
+	</fieldset>
+
+	<fieldset>
+		<legend>{{ lang('ACP_SUBMIT_CHANGES') }}</legend>
+		<p class="submit-buttons">
+			<input class="button1" type="submit" id="submit" name="submit" value="{{ lang('SUBMIT') }}" />&nbsp;
+			<input class="button2" type="reset" id="reset" name="reset" value="{{ lang('RESET') }}" />
+		</p>
+		{S_FORM_TOKEN}
+	</fieldset>
+</form>
+
+{% include 'overall_footer.html' %}
