@@ -15,10 +15,10 @@ class registrationage_module
 
 	function main($id, $mode)
 	{
-		global $phpbb_container, $user;
+		global $phpbb_container;
 
 		$this->tpl_name		= 'registrationage';
-		$this->page_title	= $user->lang('REGISTRATION_AGE');
+		$this->page_title	= $phpbb_container->get('language')->lang('REGISTRATION_AGE');
 
 		// Get an instance of the admin controller
 		$admin_controller = $phpbb_container->get('david63.registrationage.admin.controller');

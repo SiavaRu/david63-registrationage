@@ -9,7 +9,9 @@
 
 namespace david63\registrationage\migrations;
 
-class version_2_1_0 extends \phpbb\db\migration\migration
+use \phpbb\db\migration\migration;
+
+class version_2_1_0 extends migration
 {
 	public function update_data()
 	{
@@ -18,7 +20,6 @@ class version_2_1_0 extends \phpbb\db\migration\migration
 		$update_data[] = array('config.add', array('registration_age', 18));
 		$update_data[] = array('config.add', array('registration_age_ban_length', 0));
 		$update_data[] = array('config.add', array('registration_age_ban_reason', 'Under age'));
-		$update_data[] = array('config.add', array('registration_age_base', 0));
 		$update_data[] = array('config.add', array('registration_age_copy', 0));
 		$update_data[] = array('config.add', array('registration_age_ip', 0));
 		$update_data[] = array('config.add', array('registration_age_log', 1));

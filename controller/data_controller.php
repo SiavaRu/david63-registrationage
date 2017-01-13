@@ -10,7 +10,13 @@
 namespace david63\registrationage\controller;
 
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use david63\registrationage\ext;
+use \phpbb\config\config;
+use \phpbb\db\driver\driver_interface;
+use \phpbb\request\request;
+use \phpbb\template\template;
+use \phpbb\pagination;
+use \phpbb\language\language;
+use \david63\registrationage\ext;
 
 /**
 * Admin controller
@@ -45,17 +51,17 @@ class data_controller implements data_interface
 	* Constructor for data controller
 	*
 	* @param \phpbb\config\config				$config			Config object
-	* @param \phpbb\db\driver\driver_interface	$db
+	* @param \phpbb\db\driver\driver_interface	$db				Database object
 	* @param \phpbb\request\request				$request		Request object
 	* @param \phpbb\template\template			$template		Template object
-	* @param \phpbb\pagination					$pagination
-	* @param phpbb\language\language			$language
+	* @param \phpbb\pagination					$pagination		Pagination object
+	* @param phpbb\language\language			$language		Language object
 	* @param string								$ext_root_path	Path to this extension's root
 	*
 	* @return \david63\registrationage\controller\data_controller
 	* @access public
 	*/
-	public function __construct(\phpbb\config\config $config, \phpbb\db\driver\driver_interface $db, \phpbb\request\request $request, \phpbb\template\template $template, \phpbb\pagination $pagination, \phpbb\language\language $language, $ext_root_path)
+	public function __construct(config $config, driver_interface $db, request $request, template $template, pagination $pagination, language $language, $ext_root_path)
 	{
 		$this->config			= $config;
 		$this->db  				= $db;

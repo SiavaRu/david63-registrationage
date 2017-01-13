@@ -13,7 +13,14 @@ namespace david63\registrationage\event;
 * @ignore
 */
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use david63\registrationage\ext;
+use \phpbb\config\config;
+use \phpbb\user;
+use \phpbb\language\language;
+use \phpbb\template\template;
+use \phpbb\request\request;
+use \phpbb\auth\auth;
+use \phpbb\log\log;
+use \david63\registrationage\ext;
 
 /**
 * Event listener
@@ -55,13 +62,13 @@ class listener implements EventSubscriberInterface
 	* @param phpbb\language\language	$language	Language object
 	* @param \phpbb\template\template	$template	Template object
 	* @param \phpbb\request\request		$request	Request object
-	* @param \phpbb\auth\auth 			$auth
-	* @param \phpbb\log\log				$log
+	* @param \phpbb\auth\auth 			$auth		Auth object
+	* @param \phpbb\log\log				$log		Log object
 	*
 	* @return \david63\registrationage\event\listener
 	* @access public
 	*/
-	public function __construct(\phpbb\config\config $config, \phpbb\user $user, \phpbb\language\language $language, \phpbb\template\template $template, \phpbb\request\request $request, \phpbb\auth\auth $auth, \phpbb\log\log $log)
+	public function __construct(config $config, user $user, language $language, template $template, request $request, auth $auth, log $log)
 	{
 		$this->config	= $config;
 		$this->user		= $user;
@@ -105,14 +112,12 @@ class listener implements EventSubscriberInterface
 
 		$data = $event['data'];
 
-		$year_end = ($this->config['registration_age_base']) ? $this->today->format('Y') - $this->config['registration_age'] : $this->today->format('Y');
-
 		$this->template->assign_vars(array(
 			'REGISTRATION_AGE_DAY'		=> $this->today->format('d'),
 			'REGISTRATION_AGE_MONTH'	=> $this->today->format('m'),
-			'REGISTRATION_AGE_YEAR'		=> $year_end,
+			'REGISTRATION_AGE_YEAR'		=> $this->today->format('Y'),
 			'YEAR_START' 				=> $this->today->format('Y') - ext::CENTURY,
-			'YEAR_END' 					=> $year_end,
+			'YEAR_END' 					=> $this->today->format('Y'),
 		));
 
 		$data['registration_age_day'] 	= $this->request->variable('registration_age_day', '');

@@ -10,7 +10,13 @@
 namespace david63\registrationage\controller;
 
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use david63\registrationage\ext;
+use \phpbb\config\config;
+use \phpbb\request\request;
+use \phpbb\template\template;
+use \phpbb\user;
+use \phpbb\language\language;
+use \phpbb\log\log;
+use \david63\registrationage\ext;
 
 /**
 * Admin controller
@@ -45,13 +51,13 @@ class admin_controller implements admin_interface
 	* @param \phpbb\request\request		$request	Request object
 	* @param \phpbb\template\template	$template	Template object
 	* @param \phpbb\user				$user		User object
-	* @param phpbb\language\language	$language
-	* @param \phpbb\log\log				$log
+	* @param phpbb\language\language	$language	Language object
+	* @param \phpbb\log\log				$log		Log object
 	*
 	* @return \david63\registrationage\controller\admin_controller
 	* @access public
 	*/
-	public function __construct(\phpbb\config\config $config, \phpbb\request\request $request, \phpbb\template\template $template, \phpbb\user $user, \phpbb\language\language $language, \phpbb\log\log $log)
+	public function __construct(config $config, request $request, template $template, user $user, language $language, log $log)
 	{
 		$this->config		= $config;
 		$this->request		= $request;
@@ -112,7 +118,6 @@ class admin_controller implements admin_interface
 			'REGISTRATION_AGE'				=> isset($this->config['registration_age']) ? $this->config['registration_age'] : '',
 			'REGISTRATION_AGE_BAN_LENGTH'	=> $ban_opts,
 			'REGISTRATION_AGE_BAN_REASON'	=> isset($this->config['registration_age_ban_reason']) ? $this->config['registration_age_ban_reason'] : '',
-			'REGISTRATION_AGE_BASE'			=> isset($this->config['registration_age_base']) ? $this->config['registration_age_base'] : '',
 			'REGISTRATION_AGE_COPY'			=> isset($this->config['registration_age_copy']) ? $this->config['registration_age_copy'] : '',
 			'REGISTRATION_AGE_IP'			=> isset($this->config['registration_age_ip']) ? $this->config['registration_age_ip'] : '',
 			'REGISTRATION_AGE_LOG'			=> isset($this->config['registration_age_log']) ? $this->config['registration_age_log'] : '',
@@ -134,7 +139,6 @@ class admin_controller implements admin_interface
 		$this->config->set('registration_age', $this->request->variable('registration_age', 18));
 		$this->config->set('registration_age_ban_length', $this->request->variable('registration_age_ban_length', 0));
 		$this->config->set('registration_age_ban_reason', $this->request->variable('registration_age_ban_reason', ''));
-		$this->config->set('registration_age_base', $this->request->variable('registration_age_base', 0));
 		$this->config->set('registration_age_copy', $this->request->variable('registration_age_copy', 0));
 		$this->config->set('registration_age_ip', $this->request->variable('registration_age_ip', 0));
 		$this->config->set('registration_age_log', $this->request->variable('registration_age_log', 1));

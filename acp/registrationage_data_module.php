@@ -15,10 +15,10 @@ class registrationage_data_module
 
 	function main($id, $mode)
 	{
-		global $phpbb_container, $user;
+		global $phpbb_container;
 
 		$this->tpl_name		= 'registrationage_data';
-		$this->page_title	= $user->lang('REGISTRATION_AGE');
+		$this->page_title	= $phpbb_container->get('language')->lang('REGISTRATION_AGE');
 
 		// Get an instance of the data controller
 		$admin_controller = $phpbb_container->get('david63.registrationage.data.controller');
