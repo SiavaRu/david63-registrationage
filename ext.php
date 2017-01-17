@@ -13,7 +13,7 @@ use \phpbb\extension\base;
 
 class ext extends base
 {
-	const REGISTRATION_AGE_VERSION = '2.1.0';
+	const REGISTRATION_AGE_VERSION = '2.1.0 RC1';
 	const CENTURY = 100;
 
 	/**

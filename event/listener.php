@@ -208,7 +208,7 @@ class listener implements EventSubscriberInterface
 		$member = $event['member'];
 
 		$this->template->assign_vars(array(
-			'REGISTRATION_AGE' => $member['user_registration_birthdate'],
+			'REGISTRATION_AGE' => ($member['user_registration_birthdate']) ? $member['user_registration_birthdate'] : $this->language->lang('BIRTHDATE_NOT_ENTERED'),
 
 			// Only show the registration dob to Admins and Mods
 			'S_REGISTRATION_AGE' => ($this->auth->acl_gets('a_', 'm_')) ? true : false,

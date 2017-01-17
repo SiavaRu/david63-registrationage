@@ -139,7 +139,7 @@ class data_controller implements data_interface
 			if (($row['user_birthday'] && !$row['user_registration_birthdate']) || (!$row['user_birthday'] && $row['user_registration_birthdate']))
 			{
 				$status = 'question';
-				$title	= $this->language->lang('QUERY');
+				$title	= $this->language->lang('AGE_QUERY');
 			}
 
 			if ($row['user_birthday'] && $row['user_registration_birthdate'])
@@ -147,12 +147,12 @@ class data_controller implements data_interface
 				if ($age == $reg_age)
 				{
 					$status = 'check';
-					$title	= $this->language->lang('AGREE');
+					$title	= $this->language->lang('AGE_AGREE');
 				}
 				else
 				{
 					$status = 'error';
-					$title	= $this->language->lang('ERROR');
+					$title	= $this->language->lang('AGE_ERROR');
 				}
 			}
 

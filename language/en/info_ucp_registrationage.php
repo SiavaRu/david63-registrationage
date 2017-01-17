@@ -37,5 +37,6 @@ if (empty($lang) || !is_array($lang))
 //
 
 $lang = array_merge($lang, array(
-	'REGISTERED_BIRTHDATE'		=> 'Registered birthdate',
+	'REGISTERED_BIRTHDATE'	=> 'Registered birthdate',
+	'BIRTHDATE_NOT_ENTERED'	=> 'Birthdate not entered at registration',
 ));

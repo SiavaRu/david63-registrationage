@@ -38,6 +38,9 @@ if (empty($lang) || !is_array($lang))
 
 $lang = array_merge($lang, array(
 	'AGE' 						=> 'Age',
+	'AGE_AGREE'					=> 'Ages match',
+	'AGE_ERROR'					=> 'Ages do not match',
+	'AGE_QUERY'					=> 'Age missing',
 	'ALL'						=> 'All',
 
 	'DATE_OF_BIRTH' 			=> 'Date of birth',

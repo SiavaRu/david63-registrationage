@@ -2,7 +2,7 @@
 	"name": "david63/registrationage",
 	"type": "phpbb-extension",
 	"description": "Adds an option to enter a birthdate upon registration and to check that the date is equal to, or grater, than a minimum age.",
-	"version": "2.1.0",
+	"version": "2.1.0-rc1",
 	"time": "2017-01-11",
     "keywords": [
         "phpbb",
