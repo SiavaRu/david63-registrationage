@@ -3,20 +3,20 @@
 *
 * @package Registration Age Check
 * @copyright (c) 2016 david63
-* @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
+* @license GNU General Public License, version 2 (GPL-2.0)
 *
 */
 
 namespace david63\registrationage\controller;
 
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use \phpbb\config\config;
-use \phpbb\db\driver\driver_interface;
-use \phpbb\request\request;
-use \phpbb\template\template;
-use \phpbb\pagination;
-use \phpbb\language\language;
-use \david63\registrationage\ext;
+use phpbb\config\config;
+use phpbb\db\driver\driver_interface;
+use phpbb\request\request;
+use phpbb\template\template;
+use phpbb\pagination;
+use phpbb\language\language;
+use david63\registrationage\ext;
 
 /**
 * Admin controller

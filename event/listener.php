@@ -3,7 +3,7 @@
 *
 * @package Registration Age Check
 * @copyright (c) 2016 david63
-* @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
+* @license GNU General Public License, version 2 (GPL-2.0)
 *
 */
 
@@ -13,14 +13,14 @@ namespace david63\registrationage\event;
 * @ignore
 */
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use \phpbb\config\config;
-use \phpbb\user;
-use \phpbb\language\language;
-use \phpbb\template\template;
-use \phpbb\request\request;
-use \phpbb\auth\auth;
-use \phpbb\log\log;
-use \david63\registrationage\ext;
+use phpbb\config\config;
+use phpbb\user;
+use phpbb\language\language;
+use phpbb\template\template;
+use phpbb\request\request;
+use phpbb\auth\auth;
+use phpbb\log\log;
+use david63\registrationage\ext;
 
 /**
 * Event listener
