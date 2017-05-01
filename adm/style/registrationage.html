@@ -49,6 +49,18 @@
 			<dd><label><input type="radio" class="radio" name="registration_age_copy" value="1" id="registration_age_copy"{% if REGISTRATION_AGE_COPY %} checked="checked"{% endif %} /> {{ lang('YES') }}</label>
 				<label><input type="radio" class="radio" name="registration_age_copy" value="0" {% if not REGISTRATION_AGE_COPY %} checked="checked"{% endif %} /> {{ lang('NO') }}</label></dd>
 		</dl>
+
+		<dl>
+			<dt><label for="registration_age_display">{{ lang('REGISTRATION_AGE_DISPLAY') }}{{ lang('COLON') }}</label><br /><span>{{ lang('REGISTRATION_AGE_DISPLAY_EXPLAIN') }}</span></dt>
+			<dd><label><input type="radio" class="radio" name="registration_age_display" value="1" id="registration_age_display"{% if REGISTRATION_AGE_DISPLAY %} checked="checked"{% endif %} /> {{ lang('YES') }}</label>
+				<label><input type="radio" class="radio" name="registration_age_display" value="0" {% if not REGISTRATION_AGE_DISPLAY %} checked="checked"{% endif %} /> {{ lang('NO') }}</label></dd>
+		</dl>
+
+		<dl>
+			<dt><label for="registration_age_admin">{{ lang('REGISTRATION_AGE_ADMIN') }}{{ lang('COLON') }}</label><br /><span>{{ lang('REGISTRATION_AGE_ADMIN_EXPLAIN') }}</span></dt>
+			<dd><label><input type="radio" class="radio" name="registration_age_admin" value="1" id="registration_age_admin"{% if REGISTRATION_AGE_ADMIN %} checked="checked"{% endif %} /> {{ lang('YES') }}</label>
+				<label><input type="radio" class="radio" name="registration_age_admin" value="0" {% if not REGISTRATION_AGE_ADMIN %} checked="checked"{% endif %} /> {{ lang('NO') }}</label></dd>
+		</dl>
 	</fieldset>
 
 	<fieldset>

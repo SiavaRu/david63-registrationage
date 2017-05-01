@@ -10,13 +10,13 @@
 namespace david63\registrationage\controller;
 
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use phpbb\config\config;
-use phpbb\request\request;
-use phpbb\template\template;
-use phpbb\user;
-use phpbb\language\language;
-use phpbb\log\log;
-use david63\registrationage\ext;
+use \phpbb\config\config;
+use \phpbb\request\request;
+use \phpbb\template\template;
+use \phpbb\user;
+use \phpbb\language\language;
+use \phpbb\log\log;
+use \david63\registrationage\ext;
 
 /**
 * Admin controller
@@ -35,7 +35,7 @@ class admin_controller implements admin_interface
 	/** @var \phpbb\user */
 	protected $user;
 
-	/** @var phpbb\language\language */
+	/** @var \phpbb\language\language */
 	protected $language;
 
 	/** @var \phpbb\log\log */
@@ -116,9 +116,11 @@ class admin_controller implements admin_interface
 		// Set output vars for display in the template
 		$this->template->assign_vars(array(
 			'REGISTRATION_AGE'				=> isset($this->config['registration_age']) ? $this->config['registration_age'] : '',
+			'REGISTRATION_AGE_ADMIN'		=> isset($this->config['registration_age_admin']) ? $this->config['registration_age_admin'] : '',
 			'REGISTRATION_AGE_BAN_LENGTH'	=> $ban_opts,
 			'REGISTRATION_AGE_BAN_REASON'	=> isset($this->config['registration_age_ban_reason']) ? $this->config['registration_age_ban_reason'] : '',
 			'REGISTRATION_AGE_COPY'			=> isset($this->config['registration_age_copy']) ? $this->config['registration_age_copy'] : '',
+			'REGISTRATION_AGE_DISPLAY'		=> isset($this->config['registration_age_display']) ? $this->config['registration_age_display'] : '',
 			'REGISTRATION_AGE_IP'			=> isset($this->config['registration_age_ip']) ? $this->config['registration_age_ip'] : '',
 			'REGISTRATION_AGE_LOG'			=> isset($this->config['registration_age_log']) ? $this->config['registration_age_log'] : '',
 			'REGISTRATION_AGE_STORE'		=> isset($this->config['registration_age_store']) ? $this->config['registration_age_store'] : '',
@@ -137,9 +139,11 @@ class admin_controller implements admin_interface
 	protected function set_options()
 	{
 		$this->config->set('registration_age', $this->request->variable('registration_age', 18));
+		$this->config->set('registration_age_admin', $this->request->variable('registration_age_admin', 1));
 		$this->config->set('registration_age_ban_length', $this->request->variable('registration_age_ban_length', 0));
 		$this->config->set('registration_age_ban_reason', $this->request->variable('registration_age_ban_reason', ''));
 		$this->config->set('registration_age_copy', $this->request->variable('registration_age_copy', 0));
+		$this->config->set('registration_age_display', $this->request->variable('registration_age_display', 1));
 		$this->config->set('registration_age_ip', $this->request->variable('registration_age_ip', 0));
 		$this->config->set('registration_age_log', $this->request->variable('registration_age_log', 1));
 		$this->config->set('registration_age_store', $this->request->variable('registration_age_store', 1));

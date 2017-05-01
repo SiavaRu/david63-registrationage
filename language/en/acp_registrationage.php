@@ -37,12 +37,16 @@ if (empty($lang) || !is_array($lang))
 //
 
 $lang = array_merge($lang, array(
+	'REGISTRATION_AGE_ADMIN'				=> 'Show age on mini profile to Admin/Mods',
+	'REGISTRATION_AGE_ADMIN_EXPLAIN'		=> 'Only show the user’s age on the profile of viewtopic to Administrators and Moderators.',
 	'REGISTRATION_AGE_BAN_LENGTH'			=> 'Length of ban',
 	'REGISTRATION_AGE_BAN_LENGTH_EXPLAIN'	=> 'The length of time that the user’s IP&nbsp;address will be banned.',
 	'REGISTRATION_AGE_BAN_REASON'			=> 'Reason shown to the banned',
 	'REGISTRATION_AGE_BAN_REASON_EXPLAIN'	=> 'This is the reason for the ban that will be shown to the user.',
 	'REGISTRATION_AGE_COPY'					=> 'Copy to user’s birthday',
 	'REGISTRATION_AGE_COPY_EXPLAIN'			=> 'Copy the registration birthdate to the user’s birthday in thier profile.',
+	'REGISTRATION_AGE_DISPLAY'				=> 'Show age',
+	'REGISTRATION_AGE_DISPLAY_EXPLAIN'		=> 'Show the user’s age on the profile of viewtopic.',
 	'REGISTRATION_AGE_EXPLAIN'				=> 'Select the age at which you want to limit access.',
 	'REGISTRATION_AGE_IP'					=> 'Block IP',
 	'REGISTRATION_AGE_IP_EXPLAIN'			=> 'Ban the IP address for the user attempting to register under age.',
@@ -50,9 +54,9 @@ $lang = array_merge($lang, array(
 	'REGISTRATION_AGE_LOG_EXPLAIN'			=> 'Create a log entry for any attempted registrations that fail due to an incorrect age being entered.',
 	'REGISTRATION_AGE_OPTIONS'				=> 'Registration age options',
 	'REGISTRATION_AGE_STORE'				=> 'Store the registration age',
-	'REGISTRATION_AGE_STORE_EXPLAIN'		=> 'Save the registration age in the database.<br /><strong>Note: Be aware that saving this data may not be legal in your country</strong>',
+	'REGISTRATION_AGE_STORE_EXPLAIN'		=> 'Save the registration age in the database.<br /><strong>Note: Be aware that saving this data may not be legal in your country.</strong>',
 
-	'VERSION'							=> 'Version',
+	'VERSION'								=> 'Version',
 
 	'BAN_END_TEXT' => array(
 		'0' 	=> 'Permanent',

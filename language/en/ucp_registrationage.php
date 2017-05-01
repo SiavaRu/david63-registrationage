@@ -41,5 +41,6 @@ $lang = array_merge($lang, array(
 
 	'ENTER_BIRTHDATE' 			=> 'Enter your birthdate',
 
-	'REGISTRATION_AGE_ERROR'	=> 'The age entered age is %1$s. The minimum age to register on this board is %2$s',
+	'REGISTRATION_AGE_ERROR'	=> 'The age entered age is %1$s. The minimum age to register on this board is %2$s.',
+	'REGISTRATION_AGE_MISSING'	=> 'Invalid birthdate data entered.',
 ));

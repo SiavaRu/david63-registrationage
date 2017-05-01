@@ -9,11 +9,11 @@
 
 namespace david63\registrationage;
 
-use phpbb\extension\base;
+use \phpbb\extension\base;
 
 class ext extends base
 {
-	const REGISTRATION_AGE_VERSION = '2.1.0 RC1';
+	const REGISTRATION_AGE_VERSION = '2.1.0 RC2';
 	const CENTURY = 100;
 
 	/**
@@ -25,15 +25,24 @@ class ext extends base
 	* @access public
 	*/
 	public function is_enableable()
-	{
+ 	{
+		// Requires phpBB 3.2.0 or newer.
 		$is_enableable = phpbb_version_compare(PHPBB_VERSION, '3.2.0', '>=');
 
+		// Display a custom warning message if requirement fails.
 		if (!$is_enableable)
 		{
-			$this->container->get('language')->add_lang('ext_registrationage', 'david63/registrationage');
-			trigger_error($this->container->get('language')->lang('VERSION_32') . adm_back_link(append_sid('index.' . $this->container->getParameter('core.php_ext'), 'i=acp_extensions&amp;mode=main')), E_USER_WARNING);
+			// Need to cater for 3.1 and 3.2
+			if (phpbb_version_compare(PHPBB_VERSION, '3.2.0', '>='))
+			{
+				$this->container->get('language')->add_lang('ext_enable_error', 'david63/registrationage');
+			}
+			else
+			{
+				$this->container->get('user')->add_lang_ext('david63/registrationage', 'ext_enable_error');
+			}
 		}
 
 		return $is_enableable;
-	}
+ 	}
 }
