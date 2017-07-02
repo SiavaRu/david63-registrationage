@@ -139,11 +139,11 @@ class admin_controller implements admin_interface
 	protected function set_options()
 	{
 		$this->config->set('registration_age', $this->request->variable('registration_age', 18));
-		$this->config->set('registration_age_admin', $this->request->variable('registration_age_admin', 1));
+		$this->config->set('registration_age_admin', $this->request->variable('registration_age_admin', 0));
 		$this->config->set('registration_age_ban_length', $this->request->variable('registration_age_ban_length', 0));
 		$this->config->set('registration_age_ban_reason', $this->request->variable('registration_age_ban_reason', ''));
 		$this->config->set('registration_age_copy', $this->request->variable('registration_age_copy', 0));
-		$this->config->set('registration_age_display', $this->request->variable('registration_age_display', 1));
+		$this->config->set('registration_age_display', $this->request->variable('registration_age_display', 0));
 		$this->config->set('registration_age_ip', $this->request->variable('registration_age_ip', 0));
 		$this->config->set('registration_age_log', $this->request->variable('registration_age_log', 1));
 		$this->config->set('registration_age_store', $this->request->variable('registration_age_store', 1));
