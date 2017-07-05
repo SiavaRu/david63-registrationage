@@ -208,6 +208,7 @@ class data_controller implements data_interface
 
 		$this->template->assign_vars(array(
 			'REGISTRATION_AGE_VERSION'	=> ext::REGISTRATION_AGE_VERSION,
+			'S_FILTER_CHAR'				=> $this->character_select($fc),
 			'S_SORT_DIR'				=> $s_sort_dir,
 			'S_SORT_KEY'				=> $s_sort_key,
 			'TOTAL_USERS'				=> $this->language->lang('TOTAL_USERS', (int) $user_count),
@@ -249,6 +250,44 @@ class data_controller implements data_interface
 		}
 
 		return $age;
+	}
+
+	/**
+	 * Create the character select
+	 *
+	 * @param $default
+	 *
+	 * @return string $char_select
+	 * @access protected
+	 */
+	protected function character_select($default)
+	{
+		$options	 = array();
+		$options[''] = $this->language->lang('ALL');
+
+		for ($i = ord($this->language->lang('START_CHARACTER')); $i	<= ord($this->language->lang('END_CHARACTER')); $i++)
+		{
+			$options[chr($i)] = chr($i);
+		}
+
+		$options['other'] 	= $this->language->lang('OTHER');
+		$char_select 		= '<select name="fc" id="fc">';
+
+		foreach ($options as $value => $char)
+		{
+			$char_select .= '<option value="' . $value . '"';
+
+			if (isset($default) && $default == $char)
+			{
+				$char_select .= ' selected';
+			}
+
+			$char_select .= '>' . $char . '</option>';
+		}
+
+		$char_select .= '</select>';
+
+		return $char_select;
 	}
 
 	/**

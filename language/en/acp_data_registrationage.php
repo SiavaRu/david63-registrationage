@@ -43,9 +43,11 @@ $lang = array_merge($lang, array(
 	'AGE_QUERY'					=> 'Age missing',
 	'ALL'						=> 'All',
 
+	'CLEAR_FILTER'				=> 'Clear filter',
+
 	'DATE_OF_BIRTH' 			=> 'Date of birth',
 
-	'FILTER_BY'					=> 'Filter by',
+	'FILTER_BY'					=> 'Filter Username by',
 	'FILTER_USERNAME'			=> 'Username',
 
 	'OTHER'						=> 'Other',
@@ -53,11 +55,9 @@ $lang = array_merge($lang, array(
 	'PROFILE_DATA' 				=> 'From profile',
 
 	'REG_AGE_SORT'				=> 'Sort',
-	'REG_AGE_CLEAR_FILTER'		=> 'Clear filters',
 	'REGISTRATION_DATA'			=> 'From registration',
 	'REGISTRATION_DATA_EXPLAIN' => 'Here is a comparison of the dates of birth entered in the user’s profile and that entered at the time of registration.',
 
-	'SELECT_CHAR'				=> 'Select character',
 	'SORT_PROFILE'				=> 'Profile dob',
 	'SORT_REGISTRATION'			=> 'Registration dob',
 	'SORT_USERNAME'				=> 'Username',
