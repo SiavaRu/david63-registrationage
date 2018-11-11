@@ -209,12 +209,12 @@ class listener implements EventSubscriberInterface
 
 		if ($this->config['registration_age_store'])
 		{
-			$sql_ary['user_registration_birthdate'] = $this->reg_birthdate;
+			$sql_ary['user_registration_birthdate'] = ($this->reg_birthdate) ? $this->reg_birthdate : '';
 		}
 
 		if ($this->config['registration_age_copy'])
 		{
-			$sql_ary['user_birthday'] = $this->reg_birthdate;
+			$sql_ary['user_birthday'] = ($this->reg_birthdate) ? $this->reg_birthdate : '';
 		}
 
 		$event->offsetSet('sql_ary', $sql_ary);
